@@ -118,7 +118,7 @@ input[type="search"]::-webkit-search-decoration {
 optgroup {
   font-weight: bold; }
 
-.grid:before, .row:before, header .col:before, pre.code-example[class*="language-"]:before, .code-example > div:before, .grid:after, .row:after, header .col:after, pre.code-example[class*="language-"]:after, .code-example > div:after {
+.box:before, .row:before, header .col:before, pre.code-example[class*="language-"]:before, .code-example > div:before, .box:after, .row:after, header .col:after, pre.code-example[class*="language-"]:after, .code-example > div:after {
   content: '';
   display: block;
   clear: both; }
@@ -138,6 +138,25 @@ optgroup {
 
 html {
   font-size: 62.5%; }
+  html:after {
+    visibility: hidden;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 5px 10px;
+    font-size: 1rem;
+    font-family: monospace;
+    background-color: royalblue;
+    color: #fff; }
+    @media (max-width: 719px) {
+      html:after {
+        content: 'small'; } }
+    @media (min-width: 720px) and (max-width: 1023px) {
+      html:after {
+        content: 'medium'; } }
+    @media (min-width: 1024px) {
+      html:after {
+        content: 'large'; } }
 
 body {
   color: #3c3c3c;
@@ -186,22 +205,22 @@ hr {
   padding-left: 25px;
   padding-right: 25px; }
 
-.row.row--dbl-gutter {
-  margin: 0 -25px 50px -25px; }
+.row--add-gutter {
+  margin-bottom: 25px; }
+
+.row--dbl-gutter {
+  margin-bottom: 50px; }
   @media (max-width: 719px) {
-    .row.row--dbl-gutter {
+    .row--dbl-gutter {
       margin-bottom: 25px; } }
 
-.row.row--dbl-gutter-top {
-  margin-top: 50px; }
-
 .row.row--no-gutter {
-  margin: 0 -25px 0 -25px; }
+  margin: 0; }
 
-.grid {
+.box {
   width: 100%;
   margin: 0 auto; }
-  .grid--add-margin {
+  .box--add-gutter {
     margin-bottom: 25px; }
 
 .col--no-gutter {
@@ -307,27 +326,9 @@ hr {
 
 .row {
   margin-left: -25px;
-  margin-right: -25px;
-  margin-bottom: 25px; }
+  margin-right: -25px; }
   .row .row {
     clear: both; }
-    .row .row.row--dbl-margin-top {
-      margin-top: 0; }
-      .row .row.row--dbl-margin-top > .col {
-        margin-top: 50px; }
-        @media (max-width: 719px) {
-          .row .row.row--dbl-margin-top > .col {
-            margin-top: 25px; } }
-    .row .row.row--dbl-margin {
-      margin-top: 0;
-      margin-bottom: 0; }
-      .row .row.row--dbl-margin > .col {
-        margin-top: 50px;
-        margin-bottom: 50px; }
-        @media (max-width: 719px) {
-          .row .row.row--dbl-margin > .col {
-            margin-top: 25px;
-            margin-bottom: 25px; } }
 
 /* ============================================================
 * BUTTONS
@@ -1331,7 +1332,8 @@ p {
     margin-bottom: 0; }
 
 strong, b {
-  font-family: "lato-bold", Arial, sans-serif; }
+  font-family: "lato-bold", Arial, sans-serif;
+  font-weight: normal; }
 
 h1 {
   font-size: 4.2rem;
@@ -1452,9 +1454,6 @@ ul .separator, ol .separator, dl .separator {
   margin: 0;
   list-style-type: none; }
 
-.hide {
-  display: none !important; }
-
 .inline-left {
   text-align: left; }
 
@@ -1489,6 +1488,21 @@ ul .separator, ol .separator, dl .separator {
 
 .img-circle {
   border-radius: 50%; }
+
+.hidden {
+  display: none !important; }
+
+@media (max-width: 1023px) {
+  .hidden--mobile {
+    display: none !important; } }
+
+@media (min-width: 720px) and (max-width: 1023px) {
+  .hidden--tablet {
+    display: none !important; } }
+
+@media (max-width: 719px) {
+  .hidden--phone {
+    display: none !important; } }
 
 a[href^="https://github.com"]:before {
   content: "\e600";
@@ -1672,20 +1686,19 @@ pre.code-example[class*="language-"] {
   font-size: 1.6rem; }
   .code-example > div {
     margin: 25px; }
-    @media (max-width: 719px) {
-      .code-example > div {
-        margin: 15px; } }
-  .code-example--grid .row {
-    margin: 0; }
-    .code-example--grid .row:hover [class^="col-"] {
-      background-color: #1ab394;
-      color: white; }
-      .code-example--grid .row:hover [class^="col-"]:hover {
-        background-color: #15947a; }
+  .code-example--grid > div > .row {
+    margin-left: 0;
+    margin-right: 0; }
+  .code-example--grid .row:hover [class^="col-"] {
+    background-color: #1ab394;
+    color: white; }
+    .code-example--grid .row:hover [class^="col-"]:hover {
+      background-color: #15947a; }
   .code-example--grid [class^="col-"] {
     background-color: #DDD;
-    padding: 10px;
-    border: 1px solid #fff; }
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #CCC; }
   .code-example__icons [class^=col-] {
     text-align: center;
     border: 2px solid white;

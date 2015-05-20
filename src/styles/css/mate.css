@@ -6,7 +6,7 @@
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
 */
-.grid:before, .row:before, .grid:after, .row:after {
+.box:before, .row:before, .box:after, .row:after {
   content: '';
   display: block;
   clear: both; }
@@ -146,6 +146,25 @@ optgroup {
 
 html {
   font-size: 62.5%; }
+  html:after {
+    visibility: hidden;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 5px 10px;
+    font-size: 1rem;
+    font-family: monospace;
+    background-color: royalblue;
+    color: #fff; }
+    @media (max-width: 719px) {
+      html:after {
+        content: 'small'; } }
+    @media (min-width: 720px) and (max-width: 1023px) {
+      html:after {
+        content: 'medium'; } }
+    @media (min-width: 1024px) {
+      html:after {
+        content: 'large'; } }
 
 body {
   color: #3c3c3c;
@@ -194,22 +213,22 @@ hr {
   padding-left: 25px;
   padding-right: 25px; }
 
-.row.row--dbl-gutter {
-  margin: 0 -25px 50px -25px; }
+.row--add-gutter {
+  margin-bottom: 25px; }
+
+.row--dbl-gutter {
+  margin-bottom: 50px; }
   @media (max-width: 719px) {
-    .row.row--dbl-gutter {
+    .row--dbl-gutter {
       margin-bottom: 25px; } }
 
-.row.row--dbl-gutter-top {
-  margin-top: 50px; }
-
 .row.row--no-gutter {
-  margin: 0 -25px 0 -25px; }
+  margin: 0; }
 
-.grid {
+.box {
   width: 100%;
   margin: 0 auto; }
-  .grid--add-margin {
+  .box--add-gutter {
     margin-bottom: 25px; }
 
 .col--no-gutter {
@@ -315,27 +334,9 @@ hr {
 
 .row {
   margin-left: -25px;
-  margin-right: -25px;
-  margin-bottom: 25px; }
+  margin-right: -25px; }
   .row .row {
     clear: both; }
-    .row .row.row--dbl-margin-top {
-      margin-top: 0; }
-      .row .row.row--dbl-margin-top > .col {
-        margin-top: 50px; }
-        @media (max-width: 719px) {
-          .row .row.row--dbl-margin-top > .col {
-            margin-top: 25px; } }
-    .row .row.row--dbl-margin {
-      margin-top: 0;
-      margin-bottom: 0; }
-      .row .row.row--dbl-margin > .col {
-        margin-top: 50px;
-        margin-bottom: 50px; }
-        @media (max-width: 719px) {
-          .row .row.row--dbl-margin > .col {
-            margin-top: 25px;
-            margin-bottom: 25px; } }
 
 /* ============================================================
 * BUTTONS
@@ -1339,7 +1340,8 @@ p {
     margin-bottom: 0; }
 
 strong, b {
-  font-family: "lato-bold", Arial, sans-serif; }
+  font-family: "lato-bold", Arial, sans-serif;
+  font-weight: normal; }
 
 h1 {
   font-size: 4.2rem;
@@ -1460,9 +1462,6 @@ ul .separator, ol .separator, dl .separator {
   margin: 0;
   list-style-type: none; }
 
-.hide {
-  display: none !important; }
-
 .inline-left {
   text-align: left; }
 
@@ -1497,5 +1496,20 @@ ul .separator, ol .separator, dl .separator {
 
 .img-circle {
   border-radius: 50%; }
+
+.hidden {
+  display: none !important; }
+
+@media (max-width: 1023px) {
+  .hidden--mobile {
+    display: none !important; } }
+
+@media (min-width: 720px) and (max-width: 1023px) {
+  .hidden--tablet {
+    display: none !important; } }
+
+@media (max-width: 719px) {
+  .hidden--phone {
+    display: none !important; } }
 
 /*# sourceMappingURL=mate.css.map */
