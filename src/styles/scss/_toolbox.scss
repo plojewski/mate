@@ -1,15 +1,10 @@
 // ============================================================
+// MATE TOOLBOX
+// ============================================================
+
+// ============================================================
 // EXTENDS, PLACEHOLDERS
 // ============================================================
-%clearfix {
-  &:before,
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-}
-
 // todo: add border-collapse
 %box-sizing--border {
   -webkit-box-sizing: border-box;
@@ -21,6 +16,15 @@
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
+}
+
+%clearfix {
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
 
 %ellipsis {
@@ -94,23 +98,23 @@
     }
   }
 
-  // TABLETS
+    // TABLETS
   @else if $point == tablet {
-    @media (min-width: $breakPoint__phone) and (max-width: $breakPoint__desktop - 1) {
+    @media (max-width: $breakPoint__desktop - 1) and (min-width: $breakPoint__phone) {
       @content;
     }
   }
 
-  // DESKTOPS & LAPTOPS
+    // DESKTOPS & LAPTOPS
   @else if $point == desktop {
 
     @if $modifier == null {
-      @media (min-width: $breakPoint__desktop) {
+      @media (max-width: $breakPoint__desktop--xl - 1) and (min-width: $breakPoint__desktop) {
         @content;
       }
     }
 
-    // LARGE SCREENS
+      // LARGE SCREENS
     @else if $modifier == xl {
       @media (min-width: $breakPoint__desktop--xl + 1) {
         @content;

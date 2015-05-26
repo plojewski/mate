@@ -6,15 +6,15 @@
 * Free to use under the MIT license.
 * http://www.opensource.org/licenses/mit-license.php
 */
-.box:before, .row:before, .box:after, .row:after {
-  content: '';
-  display: block;
-  clear: both; }
-
 *, :before, :after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+.box:before, .row:before, .box:after, .row:after {
+  content: '';
+  display: block;
+  clear: both; }
 
 .btn {
   -webkit-touch-callout: none;
@@ -149,22 +149,30 @@ html {
   html:after {
     visibility: hidden;
     position: fixed;
+    z-index: 99999;
     left: 0;
     bottom: 0;
     padding: 5px 10px;
     font-size: 1rem;
     font-family: monospace;
-    background-color: royalblue;
-    color: #fff; }
+    color: #fff;
+    border-top-right-radius: 5px; }
     @media (max-width: 719px) {
       html:after {
-        content: 'small'; } }
-    @media (min-width: 720px) and (max-width: 1023px) {
+        content: 'small';
+        background-color: mediumseagreen; } }
+    @media (max-width: 1023px) and (min-width: 720px) {
       html:after {
-        content: 'medium'; } }
-    @media (min-width: 1024px) {
+        content: 'medium';
+        background-color: deepskyblue; } }
+    @media (max-width: 1279px) and (min-width: 1024px) {
       html:after {
-        content: 'large'; } }
+        content: 'large';
+        background-color: mediumpurple; } }
+    @media (min-width: 1281px) {
+      html:after {
+        content: 'x-large';
+        background-color: tomato; } }
 
 body {
   color: #3c3c3c;
@@ -205,9 +213,164 @@ hr {
     width: 150px;
     margin: 50px auto; }
 
-/*============================================================
-* GRID SYSTEM
-* ============================================================*/
+@font-face {
+  font-family: "lato-regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../fonts/lato/lato-regular.woff2") format("woff2"), url("../../fonts/lato/lato-regular.woff") format("woff"), url("../../fonts/lato/lato-regular.svg#lato-regular") format("svg"); }
+@font-face {
+  font-family: "lato-semibold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../fonts/lato/lato-semibold.woff2") format("woff2"), url("../../fonts/lato/lato-semibold.woff") format("woff"), url("../../fonts/lato/lato-semibold.svg#lato-semibold") format("svg"); }
+@font-face {
+  font-family: "lato-bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../fonts/lato/lato-bold.woff2") format("woff2"), url("../../fonts/lato/lato-bold.woff") format("woff"), url("../../fonts/lato/lato-bold.svg#lato-bold") format("svg"); }
+@font-face {
+  font-family: "lato-italic";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../fonts/lato/lato-italic.woff2") format("woff2"), url("../../fonts/lato/lato-italic.woff") format("woff"), url("../../fonts/lato/lato-italic.svg#lato-italic") format("svg"); }
+@font-face {
+  font-family: "lato-thin";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../fonts/lato/lato-thin.woff2") format("woff2"), url("../../fonts/lato/lato-thin.woff") format("woff"), url("../../fonts/lato/lato-thin.svg#lato-thin") format("svg"); }
+@font-face {
+  font-family: "lato-light";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../fonts/lato/lato-light.woff2") format("woff2"), url("../../fonts/lato/lato-light.woff") format("woff"), url("../../fonts/lato/lato-light.svg#lato-light") format("svg"); }
+p {
+  margin: 0 0 15px; }
+  p:last-child {
+    margin-bottom: 0; }
+
+strong, b {
+  font-family: "lato-bold", Arial, sans-serif;
+  font-weight: normal; }
+
+h1 {
+  font-size: 4.2rem;
+  font-family: "lato-regular", Arial, sans-serif;
+  margin: 42px 0;
+  line-height: 1;
+  font-weight: normal; }
+  @media (max-width: 719px) {
+    h1 {
+      font-size: 2.8rem;
+      margin: 28px 0; } }
+  h1:first-child {
+    margin-top: 0; }
+
+h2 {
+  font-size: 3.4rem;
+  font-family: "lato-regular", Arial, sans-serif;
+  margin: 34px 0;
+  font-weight: normal;
+  line-height: 1; }
+  @media (max-width: 719px) {
+    h2 {
+      font-size: 2.26667rem;
+      margin: 22.66667px 0; } }
+  h2:first-child {
+    margin-top: 0; }
+
+h3 {
+  font-size: 2.2rem;
+  font-family: "lato-regular", Arial, sans-serif;
+  margin: 22px 0;
+  font-weight: normal;
+  line-height: 1; }
+  @media (max-width: 719px) {
+    h3 {
+      font-size: 1.46667rem;
+      margin: 14.66667px 0; } }
+  h3:first-child {
+    margin-top: 0; }
+
+h4 {
+  font-size: 1.6rem;
+  font-family: "lato-regular", Arial, sans-serif;
+  margin: 22px 0;
+  font-weight: normal;
+  line-height: 1; }
+  @media (max-width: 719px) {
+    h4 {
+      font-size: 1.06667rem;
+      margin: 10.66667px 0; } }
+  h4:first-child {
+    margin-top: 0; }
+
+h5 {
+  font-size: 1.4rem;
+  font-family: "lato-regular", Arial, sans-serif;
+  margin: 14px 0;
+  font-weight: normal;
+  line-height: normal; }
+  @media (max-width: 719px) {
+    h5 {
+      font-size: 0.93333rem;
+      margin: 9.33333px 0; } }
+  h5:first-child {
+    margin-top: 0; }
+
+h6 {
+  font-size: 1.2rem;
+  margin: 12px 0;
+  font-weight: normal;
+  line-height: normal; }
+
+ul, ol {
+  margin: 0 0 15px; }
+  ul:last-child, ol:last-child {
+    margin-bottom: 0; }
+  ul.list-inline, ol.list-inline {
+    padding: 0; }
+    ul.list-inline li, ol.list-inline li {
+      display: inline-block; }
+  ul li:last-child ul, ol li:last-child ul {
+    margin-bottom: 0; }
+  ul ul, ul ol, ol ul, ol ol {
+    margin-top: 15px; }
+    ul ul:last-child, ul ol:last-child, ol ul:last-child, ol ol:last-child {
+      margin-bottom: 15px; }
+
+.list-unstyled {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0; }
+
+.list-path {
+  margin: 0;
+  padding: 0; }
+  .list-path li {
+    display: inline-block;
+    margin: 0; }
+    .list-path li:after {
+      content: '\25B8';
+      color: #959A9D; }
+    .list-path li:last-child:after {
+      display: none; }
+
+dl {
+  margin: 0 0 15px; }
+  dl:last-child {
+    margin-bottom: 0; }
+  dl dt {
+    font-family: "lato-semibold", Arial, sans-serif;
+    margin-top: 10px; }
+    dl dt:first-child {
+      margin-top: 0; }
+  dl dd {
+    margin-bottom: 0; }
+
+ul .separator, ol .separator, dl .separator {
+  margin: 0;
+  list-style-type: none; }
+
 .col-1, .col-1--tablet, .col-1--phone, .col-2, .col-2--tablet, .col-2--phone, .col-3, .col-3--tablet, .col-3--phone, .col-4, .col-4--tablet, .col-4--phone, .col-5, .col-5--tablet, .col-5--phone, .col-6, .col-6--tablet, .col-6--phone, .col-7, .col-7--tablet, .col-7--phone, .col-8, .col-8--tablet, .col-8--phone, .col-9, .col-9--tablet, .col-9--phone, .col-10, .col-10--tablet, .col-10--phone, .col-11, .col-11--tablet, .col-11--phone, .col-12, .col-12--tablet, .col-12--phone {
   float: left;
   padding-left: 25px;
@@ -257,7 +420,7 @@ hr {
   width: 91.66667%; }
 .col-12 {
   width: 100%; }
-@media (min-width: 720px) and (max-width: 1023px) {
+@media (max-width: 1023px) and (min-width: 720px) {
   .col-1--tablet {
     width: 8.33333%; }
   .col-2--tablet {
@@ -338,9 +501,6 @@ hr {
   .row .row {
     clear: both; }
 
-/* ============================================================
-* BUTTONS
-* ============================================================*/
 .btn {
   border: 0;
   border-radius: 5px;
@@ -621,7 +781,8 @@ textarea[disabled], [disabled] label {
 form > .row,
 fieldset > .row {
   margin-left: 0;
-  margin-right: 0; }
+  margin-right: 0;
+  margin-bottom: 25px; }
 
 form.grid > .row {
   margin-left: -25px;
@@ -832,7 +993,7 @@ label > .form-error__message {
 .icon-xxl:before {
   font-size: 4.2rem; }
 
-[class^="icon-"], [class*=" icon-"] {
+[class*="icon-"] {
   font-style: normal;
   font-weight: normal;
   display: inline-block;
@@ -842,7 +1003,7 @@ label > .form-error__message {
   speak: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-  [class^="icon-"]:before, [class*=" icon-"]:before {
+  [class*="icon-"]:before {
     font-family: 'icomoon'; }
 
 .icon-disabled:before {
@@ -1304,164 +1465,6 @@ table.table-wide, .table-css.table-wide {
     padding: 0;
     border: 0; }
 
-@font-face {
-  font-family: "lato-regular";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../../fonts/lato/lato-regular.woff") format("woff"), url("../../fonts/lato/lato-regular.svg#lato-regular") format("svg"); }
-@font-face {
-  font-family: "lato-semibold";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../../fonts/lato/lato-semibold.woff") format("woff"), url("../../fonts/lato/lato-semibold.svg#lato-semibold") format("svg"); }
-@font-face {
-  font-family: "lato-bold";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../../fonts/lato/lato-bold.woff") format("woff"), url("../../fonts/lato/lato-bold.svg#lato-bold") format("svg"); }
-@font-face {
-  font-family: "lato-italic";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../../fonts/lato/lato-italic.woff") format("woff"), url("../../fonts/lato/lato-italic.svg#lato-italic") format("svg"); }
-@font-face {
-  font-family: "lato-thin";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../../fonts/lato/lato-thin.woff") format("woff"), url("../../fonts/lato/lato-thin.svg#lato-thin") format("svg"); }
-@font-face {
-  font-family: "lato-light";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../../fonts/lato/lato-light.woff") format("woff"), url("../../fonts/lato/lato-light.svg#lato-light") format("svg"); }
-p {
-  margin: 0 0 15px; }
-  p:last-child {
-    margin-bottom: 0; }
-
-strong, b {
-  font-family: "lato-bold", Arial, sans-serif;
-  font-weight: normal; }
-
-h1 {
-  font-size: 4.2rem;
-  font-family: "lato-regular", Arial, sans-serif;
-  margin: 42px 0;
-  line-height: 1;
-  font-weight: normal; }
-  @media (max-width: 719px) {
-    h1 {
-      font-size: 2.8rem;
-      margin: 28px 0; } }
-  h1:first-child {
-    margin-top: 0; }
-
-h2 {
-  font-size: 3.4rem;
-  font-family: "lato-regular", Arial, sans-serif;
-  margin: 34px 0;
-  font-weight: normal;
-  line-height: 1; }
-  @media (max-width: 719px) {
-    h2 {
-      font-size: 2.26667rem;
-      margin: 22.66667px 0; } }
-  h2:first-child {
-    margin-top: 0; }
-
-h3 {
-  font-size: 2.2rem;
-  font-family: "lato-regular", Arial, sans-serif;
-  margin: 22px 0;
-  font-weight: normal;
-  line-height: 1; }
-  @media (max-width: 719px) {
-    h3 {
-      font-size: 1.46667rem;
-      margin: 14.66667px 0; } }
-  h3:first-child {
-    margin-top: 0; }
-
-h4 {
-  font-size: 1.6rem;
-  font-family: "lato-regular", Arial, sans-serif;
-  margin: 22px 0;
-  font-weight: normal;
-  line-height: 1; }
-  @media (max-width: 719px) {
-    h4 {
-      font-size: 1.06667rem;
-      margin: 10.66667px 0; } }
-  h4:first-child {
-    margin-top: 0; }
-
-h5 {
-  font-size: 1.4rem;
-  font-family: "lato-regular", Arial, sans-serif;
-  margin: 14px 0;
-  font-weight: normal;
-  line-height: normal; }
-  @media (max-width: 719px) {
-    h5 {
-      font-size: 0.93333rem;
-      margin: 9.33333px 0; } }
-  h5:first-child {
-    margin-top: 0; }
-
-h6 {
-  font-size: 1.2rem;
-  margin: 12px 0;
-  font-weight: normal;
-  line-height: normal; }
-
-ul, ol {
-  margin: 0 0 15px; }
-  ul:last-child, ol:last-child {
-    margin-bottom: 0; }
-  ul.list-inline, ol.list-inline {
-    padding: 0; }
-    ul.list-inline li, ol.list-inline li {
-      display: inline-block; }
-  ul li:last-child ul, ol li:last-child ul {
-    margin-bottom: 0; }
-  ul ul, ul ol, ol ul, ol ol {
-    margin-top: 15px; }
-    ul ul:last-child, ul ol:last-child, ol ul:last-child, ol ol:last-child {
-      margin-bottom: 15px; }
-
-.list-unstyled {
-  list-style-type: none;
-  margin-left: 0;
-  padding-left: 0; }
-
-.list-path {
-  margin: 0;
-  padding: 0; }
-  .list-path li {
-    display: inline-block;
-    margin: 0; }
-    .list-path li:after {
-      content: '\25B8';
-      color: #959A9D; }
-    .list-path li:last-child:after {
-      display: none; }
-
-dl {
-  margin: 0 0 15px; }
-  dl:last-child {
-    margin-bottom: 0; }
-  dl dt {
-    font-family: "lato-semibold", Arial, sans-serif;
-    margin-top: 10px; }
-    dl dt:first-child {
-      margin-top: 0; }
-  dl dd {
-    margin-bottom: 0; }
-
-ul .separator, ol .separator, dl .separator {
-  margin: 0;
-  list-style-type: none; }
-
 .inline-left {
   text-align: left; }
 
@@ -1504,7 +1507,7 @@ ul .separator, ol .separator, dl .separator {
   .hidden--mobile {
     display: none !important; } }
 
-@media (min-width: 720px) and (max-width: 1023px) {
+@media (max-width: 1023px) and (min-width: 720px) {
   .hidden--tablet {
     display: none !important; } }
 
