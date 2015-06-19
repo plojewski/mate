@@ -43,9 +43,6 @@
 // Encode tool: http://pressbin.com/tools/urlencode_urldecode/ (use encodeURIComponent())
 @mixin svg-bkg($color) {
   background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%3Cpath%20fill%3D%22#{$color}%22%20d%3D%22M7%2010l5%205%205-5z%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E');
-  padding-right: 25px;
-  background-repeat: no-repeat;
-  background-position: right center;
 }
 
 %disabled {
@@ -141,6 +138,11 @@ textarea {
   line-height: 1.42857143;
   @include font-size($text__size--md);
 
+  // min. 16px on mobile devices prevent zooming to element
+  @include respond-to(phone) {
+    font-size: 1.6rem;
+  }
+
   &:focus {
     outline: 0;
     border-color: $color__message--info !important;
@@ -154,6 +156,9 @@ textarea {
 
 select {
   @include svg-bkg(#000);
+  padding-right: 25px;
+  background-repeat: no-repeat;
+  background-position: right center;
 }
 
 textarea {
@@ -222,12 +227,14 @@ input[type="radio"] {
     border: 1px solid $border__color--second;
     text-align: center;
     vertical-align: initial;
-    line-height: normal;
+    line-height: 1;
     @include font-size($text__size--md);
 
     &:before {
       color: transparent;
       opacity: 0;
+      margin-top: 1px;
+      display: block;
       @include transition();
     }
   }
