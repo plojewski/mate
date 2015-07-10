@@ -186,6 +186,17 @@
 }
 
 // ============================================================
+// ANIMATIONS
+// ============================================================
+
+// Examples:
+// @include animation(animName 1s ease);
+@mixin animation($args...) {
+  animation: $args;
+  -webkit-animation: $args;
+}
+
+// ============================================================
 // FLEX BOX
 // resources:
 // https://scotch.io/demos/visual-guide-to-css3-flexbox-flexbox-playground
@@ -246,6 +257,73 @@
 }
 
 // ============================================================
+// NATIVE CSS MULTI COLUMNS
+// resources: http://caniuse.com/#search=column
+// todo: add to manual
+// ============================================================
+
+// Examples:
+// <div class="column-2 column--bordered">...</div>
+
+%column-common {
+  -webkit-column-gap: $grid__col--gutter*2;
+  -moz-column-gap: $grid__col--gutter*2;
+  column-gap: $grid__col--gutter*2;
+}
+
+@mixin column-count {
+  @for $i from 1 through $grid__columns {
+    &-#{$i} {
+      -webkit-column-count: $i;
+      -moz-column-count: $i;
+      column-count: $i;
+    }
+  }
+}
+
+// RWD COLUMNS FOR PHONE
+@mixin column-phone {
+  @include respond-to(phone) {
+    @for $i from 1 through $grid__columns {
+      &-#{$i}--phone {
+        -webkit-column-count: $i;
+        -moz-column-count: $i;
+        column-count: $i;
+      }
+    }
+  }
+}
+
+// RWD COLUMNS FOR TABLET
+@mixin column-tablet {
+  @include respond-to(tablet) {
+    @for $i from 1 through $grid__columns {
+      &-#{$i}--tablet {
+        -webkit-column-count: $i;
+        -moz-column-count: $i;
+        column-count: $i;
+      }
+    }
+  }
+}
+
+[class*="columns-"] {
+  @extend %column-common;
+}
+
+.columns {
+  @include column-count;
+  @include column-phone;
+  @include column-tablet;
+
+  &--bordered {
+    -webkit-column-rule: 1px solid $border__color--first;
+    -moz-column-rule: 1px solid $border__color--first;
+    column-rule: 1px solid $border__color--first;
+  }
+}
+
+// ============================================================
 // POSITIONING
 // ============================================================
 
@@ -254,19 +332,19 @@
 // @include centerer(x);
 // @include centerer(y);
 @mixin centerer($axis: auto) {
+
   @if $axis == x {
+    @include transform-free(translateX(-50%));
     left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+
   } @else if $axis == y {
+    @include transform-free(translateY(-50%));
     top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+
   } @else {
+    @include transform-free(translate(-50%, -50%));
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
   }
 
   position: absolute;
