@@ -1,30 +1,63 @@
 // ============================================================
-// MATE HELPERS
-// ============================================================
-
-// ============================================================
 // POSITIONING
+// todo: add to manual
 // ============================================================
 .inline-left {
   text-align: left;
+
+  &--phone {
+    @include respond-to(phone) {
+      text-align: left;
+    }
+  }
 }
 
 .inline-center {
   text-align: center;
+
+  &--phone {
+    @include respond-to(phone) {
+      text-align: center;
+    }
+  }
 }
 
 .inline-right {
   text-align: right;
+
+  &--phone {
+    @include respond-to(phone) {
+      text-align: right;
+    }
+  }
 }
 
 .inline-justify {
   text-align: justify;
+
+  &--phone {
+    @include respond-to(phone) {
+      text-align: justify;
+    }
+  }
 }
 
 .block-center {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.vertical-top {
+  vertical-align: top;
+}
+
+.vertical-middle {
+  vertical-align: middle;
+}
+
+.vertical-bottom {
+  vertical-align: bottom;
 }
 
 // [i] Use floats for positioning image with text
@@ -41,7 +74,7 @@
   margin-top: 50px;
 }
 
-.no-margin{
+.no-margin {
   margin: 0;
 }
 
@@ -52,7 +85,7 @@
   border-radius: 0;
 }
 
-.img-circle{
+.img-circle {
   border-radius: 50%;
 }
 
@@ -84,5 +117,14 @@
 .hidden--phone {
   @include respond-to(phone) {
     display: none !important;
+  }
+}
+
+.link-neutral {
+  text-decoration: none;
+  color: $text__color--first;
+
+  &:hover {
+    color: $text__color--link;
   }
 }

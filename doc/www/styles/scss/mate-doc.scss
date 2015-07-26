@@ -8,10 +8,56 @@
 
 // MATE DOCUMENTATION
 // ============================================================
+[data-todo] {
+  position: relative;
+
+  &:hover:after {
+    //content: "Todo:\A" attr(data-note);
+    content: "TODO: " attr(data-todo);
+    white-space: pre-wrap;
+    background-color: gold;
+    font-weight: normal;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.15), 0 2px 0 2px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    display: inline-block;
+    position: absolute;
+  }
+}
+
+
 a[href^="https://github.com"]:before {
   content: "\e600";
   font-family: 'icomoon';
   margin-right: 5px;
+}
+
+.anchor-link {
+  opacity: 0.2;
+  color: $text__color--first;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: rgba($block__color--first, 0.9);
+  border-radius: 50%;
+  font-size: 2.1rem;
+  padding: 5px;
+  margin-left: 10px;
+  @include transition();
+
+  &:before {
+    display: inline-block;
+    content: "\e63a";
+    font-family: 'icomoon';
+    vertical-align: top;
+  }
+
+  &:hover{
+    color: #fff;
+    opacity: 1;
+    background-color: $color__base--first;
+  }
 }
 
 // SIDEBAR TOGGLE

@@ -82,21 +82,21 @@
 
   // GENERIC MOBILE (TABLETS & SMARTPHONES)
   @if $point == mobile {
-    @media (max-width: $breakPoint__desktop - 1) {
+    @media screen and (max-width: $breakPoint__desktop - 1) {
       @content;
     }
   }
 
     // SMARTPHONES
   @else if $point == phone {
-    @media (max-width: $breakPoint__phone - 1) {
+    @media screen and (max-width: $breakPoint__phone - 1) {
       @content;
     }
   }
 
     // TABLETS
   @else if $point == tablet {
-    @media (max-width: $breakPoint__desktop - 1) and (min-width: $breakPoint__phone) {
+    @media screen and (max-width: $breakPoint__desktop - 1) and (min-width: $breakPoint__phone) {
       @content;
     }
   }
@@ -307,11 +307,11 @@
   }
 }
 
-[class*="columns-"] {
+[class*="column-"] {
   @extend %column-common;
 }
 
-.columns {
+.column {
   @include column-count;
   @include column-phone;
   @include column-tablet;
@@ -373,4 +373,27 @@
 @mixin perspective($size) {
   -webkit-perspective: $size;
   perspective: $size;
+}
+
+// ============================================================
+// Animations
+// [i] Useful for focusing user eyes on changed element
+// ============================================================
+
+// Example:
+// add class .mate-blink to an element by JS
+// document.getElementById(yourElement).classList.add('mate-blink');
+
+.mate-blink {
+  @include animation(mate-blink 2s ease);
+}
+
+@keyframes mate-blink {
+  0% {
+    background-color: $color__message--warning;
+  }
+
+  100% {
+    background-color: transparent;
+  }
 }

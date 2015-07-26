@@ -14,7 +14,7 @@
   text-align: left;
 }
 
-%table-col {
+%table-cell {
   padding: 0.5em 1em;
   border-bottom: 1px solid $border__color--first;
 }
@@ -23,7 +23,7 @@
   border: 1px solid $border__color--first;
 }
 
-%table-bordered-col {
+%table-bordered-cell {
   border-left: 1px solid $border__color--first;
 }
 
@@ -40,6 +40,56 @@
   border: 0;
 }
 
+%table-fixed {
+  width: inherit;
+}
+
+// COMMON FOR STANDARD TABLE & CSS TABLE
+// ============================================================
+table, .table-css {
+
+  // Super wide
+  &.table--wide {
+    @extend %table-wide;
+  }
+
+  // Clean table
+  &.table--clean {
+    th, td,
+    [class*="col-"], .row > div {
+      @extend %table-clean;
+    }
+  }
+
+  // Bordered
+  &.table--bordered {
+    @extend %table-bordered-frame;
+
+    th, td,
+    [class*="col-"], .row > div {
+      @extend %table-bordered-cell;
+
+      &:first-child {
+        border-left: 0;
+      }
+    }
+  }
+
+  // Striped
+  &.table--striped {
+    tr:nth-child(odd),
+    .row:not(.table-thead):nth-child(odd) {
+      td,
+      [class*="col-"], > div {
+        @extend %table-striped;
+      }
+    }
+  }
+
+}
+
+// STANDARD TABLE
+// ============================================================
 table {
   @extend %table-frame;
 
@@ -56,41 +106,13 @@ table {
   }
 
   th, td {
-    @extend %table-col;
+    @extend %table-cell;
   }
 
-  // bordered
-  &.table-bordered {
-    @extend %table-bordered-frame;
-
-    th, td {
-      @extend %table-bordered-col;
-    }
-  }
-
-  // striped
-  &.table-striped {
-    tr:nth-child(odd) {
-      td {
-        @extend %table-striped;
-      }
-    }
-  }
-
-  // Super wide
-  &.table-wide {
-    @extend %table-wide;
-  }
-
-  // Clean table
-  &.table-clean {
-    th, td {
-      @extend %table-clean;
-    }
-  }
 }
 
 // TABLE MADE BY CSS
+// ============================================================
 .table-css {
   display: table;
   empty-cells: show;
@@ -116,7 +138,7 @@ table {
     }
   }
 
-  // Columns
+  // Cells
   .table-thead {
     [class*="col-"],
     > div {
@@ -126,46 +148,25 @@ table {
 
   [class*="col-"],
   .row > div {
-    @extend %table-col;
+    @extend %table-cell;
     display: table-cell;
     float: none;
-    width: auto;
+    vertical-align: middle;
+
+    &.vertical-top {
+      vertical-align: top;
+    }
+
+    &.vertical-bottom {
+      vertical-align: bottom;
+    }
   }
 
-  // Bordered
-  &.table-bordered {
-    @extend %table-bordered-frame;
-
+  // Auto columns size
+  &.table--auto-size {
     [class*="col-"],
     .row > div {
-      @extend %table-bordered-col;
-
-      &:first-child {
-        border-left: 0;
-      }
+      width: auto;
     }
-  }
-
-  // Striped
-  &.table-striped {
-    .row:not(.table-thead):nth-child(odd) {
-      [class*="col-"],
-      > div {
-        @extend %table-striped;
-      }
-    }
-  }
-
-  // Clean table
-  &.table-clean {
-    [class*="col-"],
-    .row > div {
-      @extend %table-clean;
-    }
-  }
-
-  // Super wide
-  &.table-wide {
-    @extend %table-wide;
   }
 }
