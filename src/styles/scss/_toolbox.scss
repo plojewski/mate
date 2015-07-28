@@ -259,19 +259,18 @@
 // ============================================================
 // NATIVE CSS MULTI COLUMNS
 // resources: http://caniuse.com/#search=column
-// todo: add to manual
 // ============================================================
 
 // Examples:
-// <div class="column-2 column--bordered">...</div>
+// <div class="column-2 column-1--phone column--bordered">...</div>
 
-%column-common {
+%masonry-common {
   -webkit-column-gap: $grid__col--gutter*2;
   -moz-column-gap: $grid__col--gutter*2;
   column-gap: $grid__col--gutter*2;
 }
 
-@mixin column-count {
+@mixin masonry-count {
   @for $i from 1 through $grid__columns {
     &-#{$i} {
       -webkit-column-count: $i;
@@ -282,7 +281,7 @@
 }
 
 // RWD COLUMNS FOR PHONE
-@mixin column-phone {
+@mixin masonry-phone {
   @include respond-to(phone) {
     @for $i from 1 through $grid__columns {
       &-#{$i}--phone {
@@ -295,7 +294,7 @@
 }
 
 // RWD COLUMNS FOR TABLET
-@mixin column-tablet {
+@mixin masonry-tablet {
   @include respond-to(tablet) {
     @for $i from 1 through $grid__columns {
       &-#{$i}--tablet {
@@ -307,14 +306,22 @@
   }
 }
 
-[class*="column-"] {
-  @extend %column-common;
+[class*="masonry-"] {
+  @extend %masonry-common;
+
+  > article,
+  > [class*="col-"] {
+    display: inline-block;
+    float: none;
+    padding: 0;
+    width: 100%;
+  }
 }
 
-.column {
-  @include column-count;
-  @include column-phone;
-  @include column-tablet;
+.masonry{
+  @include masonry-count;
+  @include masonry-phone;
+  @include masonry-tablet;
 
   &--bordered {
     -webkit-column-rule: 1px solid $border__color--first;

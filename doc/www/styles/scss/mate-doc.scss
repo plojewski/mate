@@ -8,26 +8,6 @@
 
 // MATE DOCUMENTATION
 // ============================================================
-[data-todo] {
-  position: relative;
-
-  &:hover:after {
-    //content: "Todo:\A" attr(data-note);
-    content: "TODO: " attr(data-todo);
-    white-space: pre-wrap;
-    background-color: gold;
-    font-weight: normal;
-    color: black;
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.15), 0 2px 0 2px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    display: inline-block;
-    position: absolute;
-  }
-}
-
-
 a[href^="https://github.com"]:before {
   content: "\e600";
   font-family: 'icomoon';
@@ -107,7 +87,7 @@ body, html {
 }
 
 body {
-  @include font-size(18px);
+  font-size: 1.8rem;
 
   @include respond-to(phone) {
     @include font-size($text__size--md);
@@ -172,6 +152,8 @@ main {
     figure{
       text-align: right;
       margin-bottom: $grid__row--gutter;
+      line-height: 1;
+      @include font-size(30px);
 
       @include respond-to(phone) {
         text-align: center;
@@ -185,7 +167,9 @@ main {
       span {
         vertical-align: middle;
         line-height: normal;
-        @include font-size(30px);
+        margin-left: 7px;
+        @include font-size(12px);
+
       }
     }
 
@@ -377,5 +361,19 @@ pre.code-example[class*="language-"]{
 
   > div {
     @include flex-item;
+  }
+}
+
+[class*="masonry-"] {
+  -webkit-column-gap: $grid__col--gutter;
+  -moz-column-gap: $grid__col--gutter;
+  column-gap: $grid__col--gutter;
+}
+
+[class*="masonry-"] > article {
+  margin-bottom: $grid__row--gutter;
+
+  img{
+    display: block;
   }
 }
