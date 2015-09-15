@@ -338,11 +338,11 @@ html {
       html:after {
         content: 'medium';
         background-color: deepskyblue; } }
-    @media (min-width: 1024px) {
+    @media screen and (min-width: 1024px) {
       html:after {
         content: 'large';
         background-color: mediumpurple; } }
-    @media (min-width: 1281px) {
+    @media screen and (min-width: 1281px) {
       html:after {
         content: 'x-large';
         background-color: tomato; } }
@@ -380,7 +380,7 @@ hr {
   border: 0;
   height: 1px;
   background-color: #CCC;
-  margin: 15px auto; }
+  margin: 25px auto; }
   hr.mini {
     width: 150px;
     margin: 50px auto; }
@@ -701,6 +701,22 @@ ul .separator, ol .separator, dl .separator {
   .row .row {
     clear: both; }
 
+.table--rwd-cols {
+  width: 100%; }
+  .table--rwd-cols tr {
+    display: block; }
+  .table--rwd-cols td {
+    display: block;
+    padding: 0 0 0 50px;
+    width: 50%;
+    float: left; }
+    @media screen and (max-width: 719px) {
+      .table--rwd-cols td {
+        width: 100%;
+        padding: 0 0 25px 0; } }
+    .table--rwd-cols td:first-child {
+      padding-left: 0; }
+
 .btn {
   line-height: 1.5;
   border-radius: 5px;
@@ -716,6 +732,9 @@ ul .separator, ol .separator, dl .separator {
   .btn--xs {
     font-size: 1.2rem;
     padding: 0.3rem 0.6rem; }
+    @media screen and (max-width: 719px) {
+      .btn--xs {
+        padding: 0.201rem 0.6rem; } }
     .btn--xs.btn--arrow-l {
       margin-left: 1.2rem; }
       .btn--xs.btn--arrow-l:before {
@@ -729,6 +748,9 @@ ul .separator, ol .separator, dl .separator {
   .btn--sm {
     font-size: 1.4rem;
     padding: 0.8rem 1.6rem; }
+    @media screen and (max-width: 719px) {
+      .btn--sm {
+        padding: 0.536rem 1.6rem; } }
     .btn--sm.btn--arrow-l {
       margin-left: 1.85rem; }
       .btn--sm.btn--arrow-l:before {
@@ -739,6 +761,9 @@ ul .separator, ol .separator, dl .separator {
       .btn--sm.btn--arrow-r:after {
         border-width: 1.85rem 0 1.85rem 1.85rem;
         margin-right: 1.85rem; }
+  @media screen and (max-width: 719px) {
+    .btn {
+      padding: 0.67rem 2rem; } }
   .btn.btn--arrow-l {
     margin-left: 2.2rem; }
     .btn.btn--arrow-l:before {
@@ -752,6 +777,9 @@ ul .separator, ol .separator, dl .separator {
   .btn--md {
     font-size: 1.6rem;
     padding: 1rem 2rem; }
+    @media screen and (max-width: 719px) {
+      .btn--md {
+        padding: 0.67rem 2rem; } }
     .btn--md.btn--arrow-l {
       margin-left: 2.2rem; }
       .btn--md.btn--arrow-l:before {
@@ -765,6 +793,9 @@ ul .separator, ol .separator, dl .separator {
   .btn--lg {
     font-size: 2.2rem;
     padding: 1.25rem 2.5rem; }
+    @media screen and (max-width: 719px) {
+      .btn--lg {
+        padding: 0.8375rem 2.5rem; } }
     .btn--lg.btn--arrow-l {
       margin-left: 2.9rem; }
       .btn--lg.btn--arrow-l:before {
@@ -778,6 +809,9 @@ ul .separator, ol .separator, dl .separator {
   .btn--xl {
     font-size: 3.4rem;
     padding: 1.5rem 3rem; }
+    @media screen and (max-width: 719px) {
+      .btn--xl {
+        padding: 1.005rem 3rem; } }
     .btn--xl.btn--arrow-l {
       margin-left: 4.05rem; }
       .btn--xl.btn--arrow-l:before {
@@ -791,6 +825,9 @@ ul .separator, ol .separator, dl .separator {
   .btn--xxl {
     font-size: 4.2rem;
     padding: 1.75rem 3.5rem; }
+    @media screen and (max-width: 719px) {
+      .btn--xxl {
+        padding: 1.1725rem 3.5rem; } }
     .btn--xxl.btn--arrow-l {
       margin-left: 4.9rem; }
       .btn--xxl.btn--arrow-l:before {
@@ -877,7 +914,55 @@ ul .separator, ol .separator, dl .separator {
 .btn--outline {
   border-radius: 5px;
   background-color: transparent;
-  box-shadow: 0 0 0 2px inset; }
+  border: 2px solid;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem; }
+  .btn--outline.btn--xs {
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem; }
+    @media screen and (max-width: 719px) {
+      .btn--outline.btn--xs {
+        padding-top: 0.067rem;
+        padding-bottom: 0.067rem; } }
+  .btn--outline.btn--sm {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem; }
+    @media screen and (max-width: 719px) {
+      .btn--outline.btn--sm {
+        padding-top: 0.402rem;
+        padding-bottom: 0.402rem; } }
+  @media screen and (max-width: 719px) {
+    .btn--outline {
+      padding-top: 0.536rem;
+      padding-bottom: 0.536rem; } }
+  .btn--outline.btn--md {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem; }
+    @media screen and (max-width: 719px) {
+      .btn--outline.btn--md {
+        padding-top: 0.536rem;
+        padding-bottom: 0.536rem; } }
+  .btn--outline.btn--lg {
+    padding-top: 1.05rem;
+    padding-bottom: 1.05rem; }
+    @media screen and (max-width: 719px) {
+      .btn--outline.btn--lg {
+        padding-top: 0.7035rem;
+        padding-bottom: 0.7035rem; } }
+  .btn--outline.btn--xl {
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem; }
+    @media screen and (max-width: 719px) {
+      .btn--outline.btn--xl {
+        padding-top: 0.871rem;
+        padding-bottom: 0.871rem; } }
+  .btn--outline.btn--xxl {
+    padding-top: 1.55rem;
+    padding-bottom: 1.55rem; }
+    @media screen and (max-width: 719px) {
+      .btn--outline.btn--xxl {
+        padding-top: 1.0385rem;
+        padding-bottom: 1.0385rem; } }
 .btn--block {
   display: block;
   width: 100%; }
@@ -1363,6 +1448,9 @@ label > .form-error__message {
 .icon-layers:before {
   content: "\e63f"; }
 
+.icon-certificate:before {
+  content: "\e682"; }
+
 .icon-security:before {
   content: "\e640"; }
 
@@ -1638,7 +1726,8 @@ table thead, .table-css .table-thead [class*="col-"],
 table th, table td, .table-css [class*="col-"],
 .table-css .row > div {
   padding: 0.5em 1em;
-  border-bottom: 1px solid #CCC; }
+  border-bottom: 1px solid #CCC;
+  font-weight: normal; }
 
 table.table--bordered, .table-css.table--bordered {
   border: 1px solid #CCC; }
@@ -1673,7 +1762,9 @@ table.table--bordered [class*="col-"]:first-child, table.table--bordered .row > 
 .table-css.table--bordered [class*="col-"]:first-child, .table-css.table--bordered .row > div:first-child {
   border-left: 0; }
 
-table tbody tr:last-child td {
+table tbody th {
+  text-align: left; }
+table tbody tr:last-child th, table tbody tr:last-child td {
   border-bottom: 0; }
 
 .table-css {
@@ -1763,11 +1854,11 @@ table tbody tr:last-child td {
 .hidden {
   display: none !important; }
 
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .hidden--desktop {
     display: none !important; } }
 
-@media screen and (max-width: 1024px -1) {
+@media screen and (max-width: 1023px) {
   .hidden--mobile {
     display: none !important; } }
 
