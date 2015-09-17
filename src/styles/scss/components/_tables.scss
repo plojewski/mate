@@ -12,6 +12,7 @@
   background-color: $block__color--first;
   font-family: $font__base--bold;
   text-align: left;
+  line-height: normal;
 }
 
 %table-cell {
@@ -48,6 +49,11 @@
 // COMMON FOR STANDARD TABLE & CSS TABLE
 // ============================================================
 table, .table-css {
+  // RWD
+  @include respond-to($mobile) {
+    overflow-x: auto;
+    display: block;
+  }
 
   // Super wide
   &.table--wide {
@@ -101,6 +107,9 @@ table {
   tbody {
     th {
       text-align: left;
+      font-family: $font__base--bold;
+      line-height: normal;
+      vertical-align: top;
     }
 
     tr:last-child {
