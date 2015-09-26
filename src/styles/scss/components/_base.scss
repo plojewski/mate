@@ -7,12 +7,17 @@
 }
 
 html {
-  font-size: 10px; // or 62.5%
+  font-size: 62.5%;
+
+  @include respond-to($mobile) {
+    font-size: 62.5% - 10%;
+  }
 
   // Breakpoint helper
   // todo: describe in manual, + how to use with JS
   // todo: add var in settings to disable?
   &:after {
+    content: 'Unhide to see device size in corner';
     visibility: hidden;
     position: fixed;
     z-index: 99999;
@@ -48,12 +53,16 @@ html {
 
 body {
   color: $text__color--first;
-  font-family: $font__base--light;
+  font-family: $font__base--regular;
   font-size: $text__size--base;
   line-height: $text__line-height-ratio;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+// BASE FONT FACE
+// ============================================================
+@include font-face($font__base--dir, $font__base--family);
 
 // BASIC COMMON COLORS
 // todo: describe in manual

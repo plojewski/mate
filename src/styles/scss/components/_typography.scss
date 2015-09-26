@@ -2,26 +2,6 @@
 // TYPOGRAPHY
 // ============================================================
 
-// FONT FACE
-// [i] only woff & svg are needed today, see http://caniuse.com/#feat=fontface
-// ============================================================
-@mixin font-face($dir, $file) {
-  @each $faceFile in $file {
-    @font-face {
-      font-family: quote($faceFile);
-      font-style: normal;
-      font-weight: normal;
-      src: url($dir + $faceFile + ".woff2") format('woff2'),
-           url($dir + $faceFile + ".woff") format('woff'),
-           url($dir + $faceFile + ".svg#" + $faceFile + "") format('svg');
-    }
-  }
-}
-
-// TYPOGRAPHY: BASE FONT FACE
-// ============================================================
-@include font-face($font__base--dir, $font__base--file);
-
 // TYPOGRAPHY: PARAGRAPHS
 // ============================================================
 p {
@@ -42,16 +22,14 @@ strong, b {
 // TYPOGRAPHY: HEADERS
 // ============================================================
 h1 {
-  @include font-size($text__size--xxl);
+  font-size: $text__size--xxl;
   font-family: $font__base--regular;
   margin: $text__size--xxl 0;
   line-height: 1;
   font-weight: normal;
 
-  // todo: do tests
   @include respond-to($phone) {
-    @include font-size(floor($text__size--xxl /1.5));
-    margin: floor($text__size--xxl/1.5) 0;
+    margin: floor($text__size--xxl / 1.5) 0;
   }
 
   &:first-child {
@@ -60,15 +38,14 @@ h1 {
 }
 
 h2 {
-  @include font-size($text__size--xl);
+  font-size: $text__size--xl;
   font-family: $font__base--regular;
   margin: $text__size--xl 0;
   font-weight: normal;
   line-height: 1;
 
   @include respond-to($phone) {
-    @include font-size(floor($text__size--xl /1.5));
-    margin: floor($text__size--xl/1.5) 0;
+    margin: floor($text__size--xl / 1.5) 0;
   }
 
   &:first-child{
@@ -77,15 +54,14 @@ h2 {
 }
 
 h3 {
-  @include font-size($text__size--lg);
+  font-size:$text__size--lg;
   font-family: $font__base--regular;
   margin: $text__size--lg 0;
   font-weight: normal;
   line-height: 1;
 
   @include respond-to($phone) {
-    @include font-size(floor($text__size--lg /1.5));
-    margin: floor($text__size--lg/1.5) 0;
+    margin: floor($text__size--lg / 1.5) 0;
   }
 
   &:first-child {
@@ -94,15 +70,14 @@ h3 {
 }
 
 h4 {
-  @include font-size($text__size--md);
+  font-size:$text__size--md;
   font-family: $font__base--regular;
   margin: $text__size--lg 0;
   font-weight: normal;
   line-height: 1;
 
   @include respond-to($phone) {
-    @include font-size(floor($text__size--md /1.5));
-    margin: floor($text__size--md/1.5) 0;
+    margin: floor($text__size--md / 1.5) 0;
   }
 
   &:first-child {
@@ -111,16 +86,11 @@ h4 {
 }
 
 h5 {
-  @include font-size($text__size--sm);
+  font-size:$text__size--sm;
   font-family: $font__base--regular;
   margin: $text__size--sm 0;
   font-weight: normal;
   line-height: normal;
-
-  @include respond-to($phone) {
-    @include font-size(floor($text__size--sm /1.5));
-    margin: floor($text__size--sm/1.5) 0;
-  }
 
   &:first-child {
     margin-top: 0;
@@ -128,7 +98,7 @@ h5 {
 }
 
 h6 {
-  @include font-size($text__size--xs);
+  font-size: $text__size--xs;
   margin: $text__size--xs 0;
   font-weight: normal;
   line-height: normal;

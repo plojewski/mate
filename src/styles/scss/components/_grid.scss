@@ -96,6 +96,8 @@
 .box {
   max-width: $page__width--maxsize;
   margin: 0 auto;
+  padding-left: $grid__col--gutter;
+  padding-right: $grid__col--gutter;
 
   &--fluid {
     width: 100%;
