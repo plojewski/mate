@@ -2,10 +2,9 @@
 title: Icons
 ---
 
-<p>Ikonki pochodzą głównie z bibliotek znalezionych na <a href="https://icomoon.io/" target="_blank">icomoon.io</a> (większość to Material Design
-    Icons od Google).<br>
-    Zbiór ikonek możesz poszerzyć o własne pozycje, aby Ci to umożliwić zamieściliśmy w folderze <code>fonts/icomoon</code> plik
-    konfiguracyjny <code>mate.json</code>, który możesz wykorzystać w <a href="https://icomoon.io/" target="_blank">IconMoon App</a>.
+<p>Icons come mainly from the library found at <a href="https://icomoon.io/" target="_blank">icomoon.io</a> (most of them are Material Design
+    Icons from Google).<br>
+    The set of icons you can very easily expand their own positions. To make this possible we have included in the <code>fonts/icomoon</code> folder a configuration file (<code>mate.json</code>) exported from IconMoon, which you can use in<a href="https://icomoon.io/" target="_blank">IconMoon App</a>.
 </p>
 
 <div class="code-example code-example__icons">
@@ -553,14 +552,11 @@ title: Icons
     <a href="#nav-how-to" class="anchor-link"></a>
 </h2>
 
-<p><strong>Pro tip:</strong> Wrap text in the <code>span</code> to perfectly center the text beside the icon.</p>
-
-
 <h3>With buttons</h3>
 <div class="code-example">
     <div class="inline-center" data-clone>
-        <a href="#" class="btn btn--color-second btn--md"><span>Edit</span> <span class="icon-edit"></span></a>
-        <a href="#" class="btn btn--color-second btn--md">Vertical centered & aligned</a>
+        <a href="#" class="btn btn--color-second btn--md">Edit <span class="icon-edit"></span></a>
+        <a href="#" class="btn btn--color-second btn--md">Perfectly vertical centered & aligned, even with icons</a>
     </div>
     <pre lang="html"></pre>
 </div>
@@ -574,14 +570,14 @@ title: Icons
         <a href="#" class="btn btn--color-second * icon-edit icon--md"></a>
         <a href="#" class="btn btn--color-second * icon-add-circle icon--md"></a>
 
+        <hr>
+
         <!-- icon tag inside button -->
         <a href="#" class="btn btn--color-second">
-            <span class="icon-apps icon--md"></span>
-            <span>Menu</span>
+            <span class="icon-apps icon--md"></span> Menu
         </a>
         <a href="#" class="btn btn--color-second">
-            <span class="icon-email icon--md"></span>
-            <span>Email</span>
+            <span class="icon-email icon--md"></span> Email
         </a>
         <a href="#" class="btn btn--color-second">
             <span class="icon-bookmark icon--md"></span>
@@ -593,12 +589,14 @@ title: Icons
         </a>
 
         <a href="#" class="btn btn--color-second btn--outline">
-            <span class="icon-file icon--md"></span> <span>Menu</span>
+            <span class="icon-file icon--md"></span> Menu
         </a>
+
+        <hr>
 
         <!-- icon inside button, size defined in button -->
         <a href="#" class="btn btn--color-second btn--xl">
-            <span>Voice</span><span class="icon-voice"></span>
+            <span>Voice</span> <span class="icon-voice"></span>
         </a>
         <a href="#" class="btn btn--color-second btn--xl">
             <span>Video</span> <span class="icon-videocam"></span>
