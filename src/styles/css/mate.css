@@ -22,6 +22,17 @@
   -ms-user-select: none;
   user-select: none; }
 
+input[type="text"][disabled],
+input[type="password"][disabled],
+input[type="tel"][disabled],
+input[type="url"][disabled],
+input[type="email"][disabled],
+input[type="search"][disabled],
+input[type="number"][disabled],
+select[disabled],
+textarea[disabled], [disabled] label {
+  cursor: no-drop; }
+
 [class*="masonry-"] {
   -webkit-column-gap: 50px;
   -moz-column-gap: 50px;
@@ -184,9 +195,12 @@
     -moz-column-count: 12;
     column-count: 12; } }
 .masonry--bordered {
-  -webkit-column-rule: 1px solid #CCC;
-  -moz-column-rule: 1px solid #CCC;
-  column-rule: 1px solid #CCC; }
+  -webkit-column-rule: 1px solid;
+  -moz-column-rule: 1px solid;
+  column-rule: 1px solid;
+  -webkit-column-rule-color: #CCC;
+  -moz-column-rule-color: #CCC;
+  column-rule-color: #CCC; }
 
 .mate-blink {
   animation: mate-blink 2s ease;
@@ -440,7 +454,7 @@ strong, b {
 
 h1 {
   font-size: 4.2rem;
-  font-family: "LatoRegular", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif, sans-serif;
+  font-family: "LatoMedium", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif, sans-serif;
   margin: 4.2rem 0;
   line-height: 1;
   font-weight: normal; }
@@ -452,7 +466,7 @@ h1 {
 
 h2 {
   font-size: 3.4rem;
-  font-family: "LatoRegular", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif, sans-serif;
+  font-family: "LatoMedium", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif, sans-serif;
   margin: 3.4rem 0;
   font-weight: normal;
   line-height: 1; }
@@ -464,7 +478,7 @@ h2 {
 
 h3 {
   font-size: 2.2rem;
-  font-family: "LatoRegular", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif, sans-serif;
+  font-family: "LatoMedium", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif, sans-serif;
   margin: 2.2rem 0;
   font-weight: normal;
   line-height: 1; }
@@ -1071,17 +1085,6 @@ ul .separator, ol .separator, dl .separator {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       padding: 0 10px; }
-
-input[type="text"][disabled],
-input[type="password"][disabled],
-input[type="tel"][disabled],
-input[type="url"][disabled],
-input[type="email"][disabled],
-input[type="search"][disabled],
-input[type="number"][disabled],
-select[disabled],
-textarea[disabled], [disabled] label {
-  cursor: no-drop; }
 
 form > .row,
 fieldset > .row {
