@@ -257,7 +257,7 @@ textarea[disabled], [disabled] label {
     -webkit-column-count: 12;
     -moz-column-count: 12;
     column-count: 12; } }
-@media screen and (max-width: 1023px) and (min-width: 720px) {
+@media screen and (min-width: 720px) and (max-width: 1023px) {
   .masonry-1--tablet {
     -webkit-column-count: 1;
     -moz-column-count: 1;
@@ -354,7 +354,7 @@ html {
       html:after {
         content: 'small';
         background-color: mediumseagreen; } }
-    @media screen and (max-width: 1023px) and (min-width: 720px) {
+    @media screen and (min-width: 720px) and (max-width: 1023px) {
       html:after {
         content: 'medium';
         background-color: deepskyblue; } }
@@ -746,7 +746,7 @@ ul li.separator--line:after, ul dt.separator--line:after, ol li.separator--line:
     width: 100%; }
   .col--mobile-offset-12 {
     margin-left: 100%; } }
-@media screen and (max-width: 1023px) and (min-width: 720px) {
+@media screen and (min-width: 720px) and (max-width: 1023px) {
   .col-1--tablet {
     width: 8.33333%; }
   .col--tablet-offset-1 {
@@ -867,7 +867,7 @@ ul li.separator--line:after, ul dt.separator--line:after, ol li.separator--line:
 @media screen and (max-width: 719px) {
   .grid-phone-add-gutter-bottom {
     margin-bottom: 25px; } }
-@media screen and (max-width: 1023px) and (min-width: 720px) {
+@media screen and (min-width: 720px) and (max-width: 1023px) {
   .grid-tablet-add-gutter-bottom {
     margin-bottom: 25px; } }
 @media screen and (max-width: 1023px) {
@@ -1256,14 +1256,25 @@ form em {
 fieldset > .row label {
   margin-bottom: 0; }
 
-[placeholder]::-webkit-input-placeholder {
-  color: #959A9D; }
-[placeholder]::-moz-placeholder {
-  color: #959A9D; }
-[placeholder]:-ms-input-placeholder {
-  color: #959A9D; }
-[placeholder]::placeholder {
-  color: #959A9D; }
+::-webkit-input-placeholder {
+  color: #959A9D;
+  font-size: inherit;
+  font-family: "LatoRegular", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif; }
+
+::-moz-placeholder {
+  color: #959A9D;
+  font-size: inherit;
+  font-family: "LatoRegular", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif; }
+
+:-ms-input-placeholder {
+  color: #959A9D;
+  font-size: inherit;
+  font-family: "LatoRegular", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif; }
+
+::placeholder {
+  color: #959A9D;
+  font-size: inherit;
+  font-family: "LatoRegular", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif; }
 
 input[type="text"],
 input[type="password"],
@@ -2054,7 +2065,7 @@ table tbody th {
   .hidden--mobile {
     display: none !important; } }
 
-@media screen and (max-width: 1023px) and (min-width: 720px) {
+@media screen and (min-width: 720px) and (max-width: 1023px) {
   .hidden--tablet {
     display: none !important; } }
 
@@ -2090,10 +2101,24 @@ body {
   font-size: 1.8rem;
   font-family: "LatoLight", "Helvetica Neue", "Trebuchet MS", "Arial", sans-serif; }
 
-a[href^="https://github.com"]:before {
-  content: "\e600";
-  font-family: 'icomoon', sans-serif;
-  margin-right: 5px; }
+a[href^="https://github.com"] {
+  position: relative; }
+  a[href^="https://github.com"]:after {
+    content: "\e600";
+    font-family: 'icomoon', sans-serif;
+    margin-left: 5px;
+    font-size: 1.4rem;
+    position: absolute;
+    top: 0;
+    transition: all 300ms ease-in-out 0s; }
+  a[href^="https://github.com"]:hover:after {
+    color: #1ab394; }
+
+.link-neutral {
+  border-bottom: 1px solid rgba(60, 60, 60, 0.4); }
+  .link-neutral:hover {
+    color: #3c3c3c;
+    border-bottom-color: #1ab394; }
 
 .anchor-link {
   opacity: 0.2;
@@ -2242,7 +2267,7 @@ main > aside {
     text-align: center; }
 main > section[class*="col-"] {
   padding: 50px; }
-  @media screen and (max-width: 1023px) and (min-width: 720px) {
+  @media screen and (min-width: 720px) and (max-width: 1023px) {
     main > section[class*="col-"] {
       padding: 25px; } }
   @media screen and (max-width: 719px) {
@@ -2335,6 +2360,4 @@ pre.code-example[class*="language-"] {
   [class*="masonry-"] > article img {
     display: block; }
 
-
-
-/*# sourceMappingURL=../css/mate-doc.css.map */
+/*# sourceMappingURL=mate-doc.css.map */
