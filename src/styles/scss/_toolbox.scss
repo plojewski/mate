@@ -328,23 +328,26 @@ $devices:     (phone: $phone, tablet: $tablet, mobile: $mobile, desktop: $deskto
 }
 
 // INPUT PLACEHOLDER
-@mixin placeholder($color: $text__color--muted, $font-size: inherit, $font-family: $font__base--regular) {
+@mixin placeholder($color: $text__color--muted, $font-size: inherit, $font-family: $font__base--regular, $font-weight: inherit) {
   ::-webkit-input-placeholder {
     color: $color;
     font-size: $font-size;
     font-family: $font-family;
+    font-weight: $font-weight;
   }
 
   ::-moz-placeholder {
     color: $color;
     font-size: $font-size;
     font-family: $font-family;
+    font-weight: $font-weight;
   }
 
   :-ms-input-placeholder {
     color: $color;
     font-size: $font-size;
     font-family: $font-family;
+    font-weight: $font-weight;
   }
 
   // CSS4
@@ -352,6 +355,7 @@ $devices:     (phone: $phone, tablet: $tablet, mobile: $mobile, desktop: $deskto
     color: $color;
     font-size: $font-size;
     font-family: $font-family;
+    font-weight: $font-weight;
   }
 }
 
